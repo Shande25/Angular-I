@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Pokemon } from './utils/pokemon';
 import { CommonModule } from '@angular/common';
 import * as pokemonData from '../../../../public/json/pokemonData.json'
+import { Pokemon } from './utils/pokemon';
 
 
 function randomInt(max: number){

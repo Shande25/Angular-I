@@ -3,20 +3,20 @@
     "id":1,
     "nombre":"Pikachu",
     "peso": 6.0,
-    "imagen": "imagenes/Pokéball.png",
+    "imagen": "imagenes/pokemon-poster.png",
     "tipo":1
   },
   {
     "id":2,
-    "nombre":"Bulbasaur",
-    "peso": 6.9,
+    "nombre":"Charmander",
+    "peso": 8.5,
     "imagen": "imagenes/pngtree-charmander-clipart-pokemon-dragon-cute-satoshi-character-illustration-cartoon-vector-png-image_6809311.png",
     "tipo":2
   },
   {
     "id":3,
-    "nombre":"Charmander",
-    "peso": 8.5,
+    "nombre":"Eevee",
+    "peso": 6.5,
     "imagen": "imagenes/800px-Eevee.png",
     "tipo":3
   }
