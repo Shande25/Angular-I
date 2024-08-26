@@ -9,7 +9,7 @@ function randomInt(max: number){
 }
 @Component({
   selector: 'app-home',
-  standalone: true,
+  standalone: true, 
   imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
