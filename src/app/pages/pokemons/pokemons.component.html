@@ -13,10 +13,10 @@
           <tbody>
             <tr *ngFor="let pokemon of pokemons" style="cursor: pointer;" (click)="onClickPokemon(pokemon)">
               <th scope="row">{{pokemon.id}}</th>
-              <td>{{pokemon.nombre}}</td>
-              <td>{{pokemon.peso}}</td>
-              <td >{{pokemon.tipo}}</td>
-              <td> <img [src]="pokemon.imagen" class="figure-img img-fluid rounded" alt="Pokemon tabla" style="width: 200px;"></td>
+              <td>{{pokemon.name}}</td>
+              <td>{{pokemon.weight}}</td>
+              <td >{{pokemon.height}}</td>
+              <td> <img [src]="pokemon.sprites.front_default" class="figure-img img-fluid rounded" [alt]="pokemon.name" style="width: 100px;"></td>
             </tr>
             
           </tbody>

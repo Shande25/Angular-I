@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute,RouterLink, RouterLinkActive } from '@angular/router';
 import * as pokemonData from '../../../../public/json/pokemonData.json'
 import { Pokemon } from '../home/utils/pokemon';
-
+import { PokemonsService } from '../../services/pokemons/pokemons.service';
 @Component({
   selector: 'app-pokemon',
   standalone: true,
@@ -12,19 +12,22 @@ import { Pokemon } from '../home/utils/pokemon';
 })
 export class PokemonComponent {
 pokemon?: Pokemon;
-  id: number = 0;
 
-constructor(private route: ActivatedRoute) {
+
+constructor(private route: ActivatedRoute ,private pokemonsService: PokemonsService) {
 
 }
 
 ngOnInit(): void {
    this.route.paramMap.subscribe(
     (params)=>{
-      this.id = Number (params.get('id'));
+      const id = Number (params.get('id'));
+      this.pokemonsService.getPokemonByID(id).subscribe((pokemon)=>{
+        this.pokemon = pokemon;
+      });
     }
   );
-  this.pokemon= ((pokemonData as any).default as Pokemon[]).find((pokemon) => pokemon.id === this.id)!;
+ 
 }
 
 }

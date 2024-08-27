@@ -31,6 +31,14 @@
             <h5 class="mb-1">{{post.title}}</h5>
             <p class="mb-1">{{post.body}}</p>
             <small>{{ post.userId }}</small>
-        </a>
+            <button type="button"  
+            class="btn btn-primary" 
+            style="margin-inline: 10px;" 
+            (click)="updatePost(post)">Actualizar</button> 
+    <button type="button"  
+            class="btn btn-danger" 
+            style="margin-inline: 10px;" 
+            (click)="deletePost(post)">Eliminar</button> 
+</a>
       </div>
 </div>

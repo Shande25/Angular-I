@@ -32,4 +32,17 @@ createPost():void{
     })
     }
   }
+  updatePost(post: Post): void {
+    const  newPost ={...post, title: "Titulo Actualizado"}; 
+    this.postService.updatePost(newPost).subscribe((post)=>{ 
+      const index = this.posts.findIndex((p)=> p.id === post.id); 
+    this.posts[index] = post; 
+  }); 
+ }
+ deletePost(post: Post): void{ 
+  this.postService.deletePost(post).subscribe(()=>{ 
+    const index = this.posts.findIndex((p)=> p.id === post.id); 
+    this.posts.splice(index,1); 
+    }) 
+   } 
 }
