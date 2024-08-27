@@ -3,7 +3,7 @@
   <div class="container" >
       <h1>Pokemon de la Semana</h1>
       <figure class="figure" style="width: 30%;">
-          <img [src]="pokemons[indicePokemonSemana].imagen" class="figure-img img-fluid rounded" alt="Pokemon de la semana" >
+          <img [src]="pokemons[indicePokemonSemana].sprites.front_default" class="figure-img img-fluid rounded" alt="Pokemon de la semana" >
           <figcaption class="figure-caption">Descripción del pokemon.</figcaption>
       </figure>
   </div>
@@ -13,15 +13,9 @@
       <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
           <div class="carousel-inner">
             <div *ngFor="let pokemon of pokemons" [class]=" pokemon.id== 1 ? 'carousel-item active' : 'carousel-item'">
-              <img [src]="pokemon.imagen" class="d-block w-100" [alt]="pokemon.nombre">
-              <h5 *ngIf="pokemon.peso > 7; else elseTemplate">Es pesado</h5>
+              <img [src]="pokemon.sprites.front_default" class="d-block w-100" [alt]="pokemon.name">
+              <h5 *ngIf="pokemon.weight > 7; else elseTemplate">Es pesado</h5>
               <ng-template #elseTemplate><h5> Es Liviano</h5></ng-template>
-              <span [ngSwitch]="pokemon.tipo">
-                <div *ngSwitchCase="1">Electrico</div>
-                <div *ngSwitchCase="2">Planta</div>
-                <div *ngSwitchCase="3">Fuego</div>
-                <div *ngSwitchDefault>Es desconocido</div>
-              </span>
             </div>   
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">

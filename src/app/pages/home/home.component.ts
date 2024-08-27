@@ -21,15 +21,15 @@ export class HomeComponent {
   
   constructor( private pokemonsService: PokemonsService ){}
   ngOnInit(): void{
-    console.log(pokemonData);
+    this.getPokemons();
   }
   getPokemons():void{
     this.pokemonsService.getPokemons().subscribe((pokemonResponse)=>{
       for(const pokemonResult of pokemonResponse.results){
         this.pokemonsService.getPokemon(pokemonResult.name).subscribe((pokemon)=>{
           this.pokemons.push(pokemon);
-        })
+        });
       }
-    });
+    })
   }
 }
