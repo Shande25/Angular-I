@@ -15,15 +15,23 @@ export class PokemonsComponent {
  
 // pokemons: Pokemon[] = (pokemonData as any).default;
 pokemons: Pokemon[] =[];
-pokemonResponse?: PokemonsResponse;
+paginas : number[] =[];
+pokrmosPorPagina: number = 20;
+paginaActual: number = 0;
+numPokemons: number = 0;
+
+
   constructor(private router: Router,private pokemonsService: PokemonsService){}
   ngOnInit(): void{
     this.getPokemons();
     
   }
-  getPokemons():void{
-    this.pokemonsService.getPokemons().subscribe((pokemonResponse)=>{
-      this.pokemonResponse = pokemonResponse;
+  getPokemons(paginas:number = 0):void{
+    this.pokemons = [];
+    this.paginaActual = paginas;
+    this.pokemonsService.getPokemons( paginas * this.pokrmosPorPagina, this.pokrmosPorPagina).subscribe((pokemonResponse)=>{
+      this.numPokemons = pokemonResponse.count
+      this.paginas = Array( Math.ceil(this.numPokemons  / this.pokrmosPorPagina)).fill(0).map((_, index)=> index +1);                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
       for(const pokemonResult of pokemonResponse.results){
         this.pokemonsService.getPokemon(pokemonResult.name).subscribe((pokemon)=>{
           this.pokemons.push(pokemon);

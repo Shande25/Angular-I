@@ -3,7 +3,7 @@
   <div class="container" >
       <h1>Pokemon de la Semana</h1>
       <figure class="figure" style="width: 30%;">
-          <img [src]="pokemons[indicePokemonSemana].sprites.front_default" class="figure-img img-fluid rounded" alt="Pokemon de la semana" >
+          <img [src]="pokemons[indicePokemonSemana]? pokemons[indicePokemonSemana].sprites.front_default: ''" class="figure-img img-fluid rounded" alt="Pokemon de la semana" >
           <figcaption class="figure-caption">Descripción del pokemon.</figcaption>
       </figure>
   </div>
